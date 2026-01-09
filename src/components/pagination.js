@@ -1,6 +1,6 @@
-import {getPages} from "../lib/utils.js";
+import { getPages } from "../lib/utils.js";
 
-export const initPagination = ({pages, fromRow, toRow, totalRows}, createPage) => {
+export const initPagination = ({ pages, fromRow, toRow, totalRows }, createPage) => {
     let pageCount;
     const pageTemplate = pages.firstElementChild.cloneNode(true);
     pages.replaceChildren();
@@ -9,7 +9,7 @@ export const initPagination = ({pages, fromRow, toRow, totalRows}, createPage) =
         const limit = parseInt(state.rowsPerPage) || 10;
         let page = parseInt(state.page) || 1;
 
-        if (action) switch(action.name) {
+        if (action) switch (action.name) {
             case 'prev': page = Math.max(1, page - 1); break;
             case 'next': page = Math.min(pageCount || 1, page + 1); break;
             case 'first': page = 1; break;

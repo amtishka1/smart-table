@@ -1,18 +1,3 @@
-import { makeIndex } from "./lib/utils.js";
-
-// export function initData(sourceData) {
-//     const sellers = makeIndex(sourceData.sellers, 'id', v => `${v.first_name} ${v.last_name}`);
-//     const customers = makeIndex(sourceData.customers, 'id', v => `${v.first_name} ${v.last_name}`);
-//     const data = sourceData.purchase_records.map(item => ({
-//         id: item.receipt_id,
-//         date: item.date,
-//         seller: sellers[item.seller_id],
-//         customer: customers[item.customer_id],
-//         total: item.total_amount
-//     }));
-//     return {sellers, customers, data};
-// }
-
 const BASE_URL = 'https://webinars.webdev.education-services.ru/sp7-api';
 
 let sellers;
@@ -28,7 +13,7 @@ const mapRecords = (data) => data.map(item => ({
     total: item.total_amount
 }));
 
-export async function initData(sourceData) {
+export function initData(sourceData) {
     // Функция получения справочников
     const getIndexes = async () => {
         if (!sellers || !customers) {
